@@ -24,6 +24,7 @@ declare namespace ServerlessHttp {
     request?: Object | Function,
     response?: Object | Function,
     binary?: boolean | Function | string | string[],
+    streaming?: boolean,
     basePath?: string
   }
   /**

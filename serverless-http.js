@@ -5,13 +5,14 @@ const getFramework = require('./lib/framework/get-framework');
 const getProvider = require('./lib/provider/get-provider');
 
 const defaultOptions = {
-  requestId: 'x-request-id'
+  requestId: 'x-request-id',
+  streaming: false,
 };
 
 module.exports = function (app, opts) {
   const options = Object.assign({}, defaultOptions, opts);
 
-  const framework = getFramework(app);
+  const framework = getFramework(app, opts);
   const provider = getProvider(options);
 
   return provider(async (request, ...context) => {
